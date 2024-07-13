@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        <title>Ner Generator</title>
+    </head>
+    <body>
+        <nav class="navbar" style="background-color: #287050;position: fixed;">
+            <div class="container-fluid">
+                <div class="menuu">
+                    <ul>
+                        <li>
+                            <a class="menu" href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a class="menu" href="#container">Penjelasan</a>
+                        </li>
+                        <li>
+                            <a class="menu" href="implementasi.html">Ner Generator</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="py-4">
+            <div class="container px-5">
+                <br><br><br><br>
+                <div class="row gx-5 align-items-center justify-content-center" style="margin: 0 80px 0 80px;">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start" >
+                            <h1 class="display-6 fw-bolder text-black mb-2">Named Entity Recognition Generator</h1>
+                            <p class="lead fw-normal text-black-50 mb-4" style="margin-right: 100px;">Sebuah Sistem untuk melakukan
+                                pengambilan informasi secara otomatis pada dokumen putusan pengadilan kategori
+                                pidanda umum di wilayah madura</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                <a class="btn btn-success btn-lg px-4 me-sm-3" href="implementasi.html">Mulai</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                        <div class="upload-box rounded-3 my-5">
+                            <button class="upload-button"><a href="implementasi.html" style="text-decoration: none; color: white;">Unggah File</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container px-5" id="container">
+            <br><br><br><br>
+            <div class="row gx-5 align-items-center justify-content-center" style="margin: 0 50px 0 50px;">
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-2" src="{{ url_for('static',filename='image-1.png')}}" alt=" "/>
+                </div>
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-end" >
+                        <h1 class="display-5 fw-bolder text-black mb-2">Pengambilan Informasi secara cepat, cukup sekali klik!</h1>
+                        <p class="lead fw-normal text-black-50 mb-4" style="margin-left: 100px;">Berkat sistem AI Ner Generator ini, anda tidak perlu menghabiskan waktu dengan membaca keseluruhan dokumen. 
+                            cukup upload dokumen, informasi penting akan secara otomatis didapatkan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center" style="margin: 0 80px 0 80px;">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start" >
+                        <h1 class="display-5 fw-bolder text-black mb-2">Sistem yang mudah digunakan</h1>
+                        <p class="lead fw-normal text-black-50 mb-4" style="margin-right: 100px;">Cukup dengan upload file pdf Putusan Pengadilan saja, 
+                            sistem akan mengambil informasi penting pada dokumen secara otomatis
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+                    <img class="img-fluid rounded-3 my-5" src="{{ url_for('static',filename='image-2.png')}}" alt=" "/>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <section class="bg-dark py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-8">
+                        <div class="text-center" style="color: white;">
+                            <h2 class="fw-bolder">METODE YANG DIGUNAKAN</h2><br>
+                            <p class="lead fw-normal text-muted mb-2">Dalam Sistem NER ini menggunakan
+                                Arsitektur Bidirectional Long Short Term Memory (Bi-Lstm) dan tiga jenis optimizer
+                                dalam membangun setiap model yaitu</p>
+                        </div>
+                    </div>
+                </div>
+                <section class="section-top-padding background-white list-group-horizontal">
+                    <div class="contain">
+                        <div class="card">
+                            <div class="content">
+                                <div class="imgBx">
+                                    <a href="https://keras.io/api/optimizers/sgd/">
+                                        <img src="../static/sgd.png">
+                                    </a>
+                                </div>
+                                <div class="contentBx">
+                                    <h3 style="color: black;">OPTIMIZER</h3>
+                                    <a href="https://keras.io/api/optimizers/sgd/">Stocastic Gradien Descent</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="content">
+                                <div class="imgBx">
+                                    <a href="https://keras.io/api/optimizers/adam/">
+                                        <img src="../static/adam.png">
+                                    </a>
+                                </div>
+                                <div class="contentBx">
+                                    <h3 style="color: black;">OPTIMIZER</h3>
+                                    <a href="https://keras.io/api/optimizers/adam/">Adam</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="content">
+                                <div class="imgBx">
+                                    <a href="https://keras.io/api/optimizers/rmsprop/">
+                                        <img src="../static/rmsprop.png">
+                                    </a>
+                                </div>
+                                <div class="contentBx">
+                                    <h3 style="color: black;">OPTIMIZER</h3>
+                                    <a href="https://keras.io/api/optimizers/rmsprop/">Rmsprop</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </body>
+</html>

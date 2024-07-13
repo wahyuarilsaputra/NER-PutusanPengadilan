@@ -1,0 +1,265 @@
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.header {
+    background-image: url_for('static',filename='tanah.jpg');
+}
+img {
+    margin-left: 10px;
+}
+b {
+    color: white;
+}
+.navbar {
+    width: 100%;
+}
+/* .container_card{
+    height: 100px;
+    } */
+.container_card {
+    margin-top: 150px;
+    border: 2px dashed #ccc;
+    /* Dashed border */
+    padding: 2rem;
+    text-align: center;
+}
+
+.drop-area {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc; /* Dashed border */
+    cursor: pointer;
+}
+
+.drop-area.active {
+    border-color: #287050; /* Change border color on active state */
+}
+
+.drop-area label {
+    cursor: pointer;
+}
+
+.upload-btn {
+    display: block;
+    margin: 0 auto; /* Center the button */
+    margin-bottom: 20px; /* Space between button and drop area */
+}
+
+.table th{
+    text-align: center;
+}
+
+.table td{
+    text-align: left;
+}
+
+.empty-box-content {
+    height: 200px;
+    /* Adjust height as needed */
+    background-color: #f8f9fa;
+    /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ccc;
+    /* Dashed border for the empty box */
+}
+.navbar-brand {
+    margin-left: 50px;
+}
+.contain {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.contain .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: white;
+    margin: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+.contain .card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.contain .card:hover .content {
+    transform: translateY(-20px);
+}
+
+.contain .card .content .imgBx {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    margin-left: -20px;
+}
+
+.contain .card .content .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-left: 0;
+}
+
+.contentBx a {
+    color: #287050;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+.contain .card .content .contentBx h3 {
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.menuu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 1rem;
+}
+
+.menuu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 425px;
+    margin-top: 10px;
+    list-style: none;
+}
+.menuu .menu {
+    color: white;
+    text-decoration: none;
+    text-align: right;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.menuu .menu:hover {
+    border-radius: 1rem;
+    background-color: white;
+    color: #287050;
+}
+
+.upload-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+    background-color: #f0f0f0; /* Warna latar belakang kotak */
+    border: 2px dashed #ccc; /* Gaya garis putus-putus untuk kotak */
+    margin-bottom: 1rem; /* Jarak bawah dari kotak */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan di luar kotak */
+}
+
+.upload-button {
+    background-color: #287050; /* Warna latar belakang tombol */
+    color: #fff; /* Warna teks tombol */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Membuat sudut tombol melengkung */
+    cursor: pointer;
+}
+
+.small-images-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Menambahkan jarak antar gambar */
+    margin-top: 20px; /* Memberikan jarak dari tag p */
+}
+
+.small-img {
+    width: 50px; /* Ukuran lebar gambar kecil */
+    height: auto; /* Mempertahankan rasio aspek gambar */
+    border-radius: 5px; /* Menambahkan sedikit radius sudut */
+    cursor: pointer; /* Menunjukkan bahwa gambar dapat diklik */
+}
+
+.upload-button:hover {
+    background-color: #173a2a; /* Warna latar belakang tombol saat di-hover */
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .menuu ul {
+        margin-left: 500px;
+    }
+    .table {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .menuu ul {
+        margin-left: 300px;
+    }
+    .table {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menuu ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 8px;
+        padding: 10px;
+        display: none;
+    }
+    .table {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .contain .card {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+    .menuu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .menuu .menu {
+        margin: 0.5rem 0;
+    }
+}

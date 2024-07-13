@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <title>Form</title>
+</head>
+<body>
+    <nav class="navbar" style="background-color: #287050;position: fixed;">
+        <div class="container-fluid">
+            <div class="menuu">
+                <ul>
+                    <li>
+                        <a class="menu" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="index.html#container">Penjelasan</a>
+                    </li>
+                    <li>
+                        <a class="menu" href="implementasi.html">Ner Generator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-7 col-xl-7">
+                    <div class="text-center">
+                        <h1 class="fw-bolder">Unggah File PDF Dokumen Putusan Pengadilan</h1><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-xl-12 col-xxl-12 d-none d-xl-block text-center" style="padding: 0 300px 0 300px; margin-top: -100px;">
+        <div class="upload-box rounded-3">
+            <form method="POST" enctype="multipart/form-data" class="mt-4">
+                <div class="mb-3">
+                    <label for="model_choice" class="form-label">Pilih Optimizer</label>
+                    <select class="form-select" id="model_choice" name="model_choice" onclick="showConfusionMatrix()" required>
+                        <option value="" {% if selected_model == "" %}selected{% endif %}>Pilih Optimizer</option>
+                        <option value="SGD" {% if selected_model == "SGD" %}selected{% endif %}>SGD</option>
+                        <option value="Adam" {% if selected_model == "Adam" %}selected{% endif %}>Adam</option>
+                        <option value="RMSprop" {% if selected_model == "RMSprop" %}selected{% endif %}>RMSprop</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="file" class="form-control" id="pdfFile" name="pdfFile" accept=".pdf" style="display: none;" required>
+                    <label for="pdfFile" class="upload-button">Unggah File PDF</label>
+                    <p id="fileName" class="mt-2"></p>
+                </div>
+            </div>
+                <button type="submit" class="btn btn-success" id="submitBtn">Proses Dokumen</button>
+            </form>
+            {% if table %}
+            <div class="mt-5">
+                <h2 class="text-center">Hasil Prediksi</h2>
+                <br><br>
+                {{ table|safe }}
+            </div>
+            <div id="confusionMatrixSection" class="mt-5">
+                <h2 id="confusionMatrixTitle" class="text-center">Hasil Confusion Matrix Optimizer</h2>
+                <br><br>
+                <img id="confusionMatrixImage" src="" alt="Confusion Matrix" style="max-width: 75%; border: 1px solid black;">
+            </div>
+            <br><br><br><br>
+        {% endif %}
+    </div>
+    <script>
+        function showConfusionMatrix() {
+            var selectOpt = document.getElementById("model_choice");
+            var selectedOpt = selectOpt.options[selectOpt.selectedIndex].value;
+            
+            var imgPath = "";
+            var title = "Hasil Confusion Matrix Optimizer";
+
+            if (selectedOpt === "") {
+                document.getElementById("submitBtn").disabled = true;
+            } else {
+                document.getElementById("submitBtn").disabled = false;
+            }
+            if (selectedOpt === "SGD") {
+                imgPath = "{{ url_for('static', filename='Confusion_MatrixSGD.png') }}";
+                title = "Hasil Confusion Matrix optimizer SGD";
+            } else if (selectedOpt === "Adam") {
+                imgPath = "{{ url_for('static', filename='Confusion_MatrixAdam.png') }}";
+                title = "Hasil Confusion Matrix optimizer Adam";
+            } else if (selectedOpt === "RMSprop") {
+                imgPath = "{{ url_for('static', filename='Confusion_MatrixRmsprop.png') }}";
+                title = "Hasil Confusion Matrix optimizer RMSprop";
+            } else {
+                imgPath = "";
+                title = "";
+            }
+
+            console.log(imgPath);
+            document.getElementById("confusionMatrixImage").src = imgPath;
+            document.getElementById("confusionMatrixTitle").textContent = title;
+        }
+
+        document.getElementById('pdfFile').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            document.getElementById('fileName').textContent = 'File yang dipilih: ' + fileName;
+        });
+        showConfusionMatrix();
+    </script>
+</body>
+</html>
