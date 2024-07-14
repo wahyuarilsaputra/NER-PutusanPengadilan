@@ -1,8 +1,7 @@
-from flask import Flask, render_template, request, url_for, redirect, send_from_directory, flash
+from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 import numpy as np
 import pandas as pd
-import pickle
 import os
 import tensorflow as tf
 from gensim.models import Word2Vec
