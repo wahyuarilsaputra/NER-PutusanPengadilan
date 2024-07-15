@@ -9,7 +9,7 @@ h5py==3.8.0
 keras==2.12.0
 nltk==3.8.1
 numpy==1.23.5
-pandas==1.5.37
+pandas==1.5.3
 pypdf==4.2.0
 PyPDF2==3.0.1
 python-crfsuite==0.9.10
