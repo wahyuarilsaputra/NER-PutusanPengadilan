@@ -1,0 +1,10 @@
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.env
+node_modules/
+logs/
+tmp/
+.DS_Store
