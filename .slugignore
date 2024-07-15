@@ -8,3 +8,4 @@ node_modules/
 logs/
 tmp/
 .DS_Store
+static/js
